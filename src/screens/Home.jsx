@@ -15,6 +15,12 @@ const Home = () => {
         history.push("/contact")
     }
 
+    // API
+
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then((data) => { return (console.log(data.json())) })
+    
+
     return (
         <>
         <h1>Home Page</h1>
