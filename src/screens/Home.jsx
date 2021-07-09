@@ -1,6 +1,7 @@
 import Links from "../components/Links";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+const axios = require('axios');
 
 const Home = () => {
     const history = useHistory();
@@ -15,12 +16,24 @@ const Home = () => {
         history.push("/contact")
     }
 
-    // API
+    // // API Fetch
 
-    fetch('https://api.covidtracking.com/v1/states/current.json')
-    .then((data) => { return (console.log(data.json())) })
-    .then((data) => { dispatch({type: "API", api: data})})
-    .catch((err) => console.log(err));
+    // fetch('https://api.covidtracking.com/v1/states/current.json')
+    // .then((data) => { return (console.log(data.json())) })
+    // .then((data) => { dispatch({type: "API", api: data})})
+    // .catch((err) => console.log(err));
+    
+
+    // Api Axios
+
+    axios.get("https://api.covidtracking.com/v1/states/current.json")
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
     
     
 
