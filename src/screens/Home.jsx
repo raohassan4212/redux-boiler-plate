@@ -17,8 +17,11 @@ const Home = () => {
 
     // API
 
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch('https://api.covidtracking.com/v1/states/current.json')
     .then((data) => { return (console.log(data.json())) })
+    .then((data) => { dispatch({type: "API", api: data})})
+    .catch((err) => console.log(err));
+    
     
 
     return (
